@@ -11,14 +11,11 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # ---------- Stage 2: Runtime ----------
-FROM amazoncorretto:21
+FROM amazoncorretto:25
 
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
-
-RUN addgroup app && adduser --system --ingroup app app
-USER app
 
 EXPOSE 8080
 
