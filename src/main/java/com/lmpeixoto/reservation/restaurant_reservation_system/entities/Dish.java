@@ -1,36 +1,41 @@
 package com.lmpeixoto.reservation.restaurant_reservation_system.entities;
 
+import com.lmpeixoto.reservation.restaurant_reservation_system.entities.enums.DishCategory;
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
 
 import java.util.List;
 
 @Entity
+@Table(name = "dish")
 public class Dish {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "ingredients")
     private List<String> ingredients;
 
-    @Column(nullable = false)
+    @Column(name = "available", nullable = false)
     private boolean available;
 
-    private enum category {
-        MAIN_COURSE, DESSERT, APPETIZER
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dish_category")
+    private DishCategory dishCategory;
 
     public Dish() {
 
     }
 
-    public Dish(int id, String name, String description, List<String> ingredients, boolean available) {
-        this.id = id;
+    public Dish(String name, String description, List<String> ingredients, boolean available) {
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
@@ -75,5 +80,17 @@ public class Dish {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", ingredients=" + ingredients +
+                ", available=" + available +
+                ", dishCategory=" + dishCategory +
+                '}';
     }
 }

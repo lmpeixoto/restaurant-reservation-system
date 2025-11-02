@@ -1,29 +1,33 @@
 package com.lmpeixoto.reservation.restaurant_reservation_system.entities;
 
+import com.lmpeixoto.reservation.restaurant_reservation_system.entities.enums.TableStatus;
 import jakarta.persistence.*;
 
+
 @Entity
-public class Table {
+@Table(name = "restaurant_table")
+public class RestaurantTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @Column(nullable = false)
+    @Column(name = "number", nullable = false)
     private int number;
 
-    @Column(nullable = false)
+    @Column(name = "capacity", nullable = false)
     private int capacity;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "table_status")
     private TableStatus tableStatus;
 
-    public Table() {
+    public RestaurantTable() {
 
     }
 
-    public Table(int id, int number, int capacity) {
-        this.id = id;
+    public RestaurantTable(int number, int capacity) {
         this.number = number;
         this.capacity = capacity;
     }
@@ -51,5 +55,17 @@ public class Table {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+    @Override
+    public String toString() {
+        return "RestaurantTable{" +
+                "id=" + id +
+                ", number=" + number +
+                ", capacity=" + capacity +
+                ", tableStatus=" + tableStatus +
+                '}';
+    }
 }
+
+
 

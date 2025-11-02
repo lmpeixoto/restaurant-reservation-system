@@ -1,40 +1,50 @@
 package com.lmpeixoto.reservation.restaurant_reservation_system.entities;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
+
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "customer")
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private int id;
 
-    @Column(nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "phone_number", nullable = false, unique = true)
     private int phoneNumber;
 
+    @Column(name = "password_hash")
     private String passwordHash;
 
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    private List<Reservation> reservations;
 
     public Customer() {
 
     }
 
-    public Customer(int id, String firstName, String lastName, String email, int phoneNumber, String passwordHash, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
+    public Customer(String firstName, String lastName, String email, int phoneNumber, String passwordHash, LocalDateTime createdAt, LocalDateTime updatedAt, List<Reservation> reservations) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -42,6 +52,7 @@ public class Customer {
         this.passwordHash = passwordHash;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.reservations = reservations;
     }
 
     public int getId() {
@@ -106,5 +117,28 @@ public class Customer {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", reservations=" + reservations +
+                '}';
     }
 }
