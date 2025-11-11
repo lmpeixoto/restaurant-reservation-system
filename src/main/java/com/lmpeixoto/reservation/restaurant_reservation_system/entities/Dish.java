@@ -12,7 +12,7 @@ public class Dish {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "dish_id")
     private int id;
 
     @Column(name = "name", nullable = false)

@@ -10,7 +10,7 @@ public class RestaurantTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "table_id")
     private int id;
 
     @Column(name = "number", nullable = false)

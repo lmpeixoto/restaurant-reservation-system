@@ -11,6 +11,7 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "reservation_id")
     private long id;
 
     @Column(nullable = false)
@@ -19,12 +20,12 @@ public class Reservation {
     @Column(nullable = false)
     private LocalDateTime dateTime;
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "table_id", nullable = false)
     private RestaurantTable restaurantTable;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    @Column(nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @Enumerated(EnumType.STRING)
