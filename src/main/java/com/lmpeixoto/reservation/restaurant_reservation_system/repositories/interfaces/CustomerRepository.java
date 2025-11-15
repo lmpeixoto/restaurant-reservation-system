@@ -1,16 +1,8 @@
 package com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces;
 
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Customer;
+import org.springframework.data.repository.CrudRepository;
 
-public interface CustomerRepository {
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
-    void save(Customer theCustomer);
-
-    Customer findCustomerById(int theId);
-
-    Customer findCustomerByEmail(String email);
-
-    Customer findCustomerByPhone(int phone);
-
-    void deleteCustomerById(int theId);
 }

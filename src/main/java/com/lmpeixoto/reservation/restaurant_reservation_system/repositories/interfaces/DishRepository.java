@@ -1,15 +1,8 @@
 package com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces;
 
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Dish;
+import org.springframework.data.repository.CrudRepository;
 
-public interface DishRepository {
-
-    void save(Dish theDish);
-
-    Dish findDishById(int theId);
-
-    Dish findDishByName(String name);
-
-    void deleteDishById(int theId);
+public interface DishRepository extends CrudRepository<Dish, Long> {
 
 }

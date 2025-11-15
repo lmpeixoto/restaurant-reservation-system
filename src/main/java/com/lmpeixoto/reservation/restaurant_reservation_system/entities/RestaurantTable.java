@@ -11,7 +11,7 @@ public class RestaurantTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "table_id")
-    private int id;
+    private long id;
 
     @Column(name = "number", nullable = false)
     private int number;
@@ -32,11 +32,11 @@ public class RestaurantTable {
         this.capacity = capacity;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

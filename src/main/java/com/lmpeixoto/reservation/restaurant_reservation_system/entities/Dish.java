@@ -13,7 +13,7 @@ public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "dish_id")
-    private int id;
+    private long id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -44,11 +44,11 @@ public class Dish {
         this.available = available;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
