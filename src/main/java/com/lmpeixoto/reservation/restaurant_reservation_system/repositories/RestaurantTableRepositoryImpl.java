@@ -5,6 +5,7 @@ import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Restaura
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class RestaurantTableRepositoryImpl implements RestaurantTableRepository {
@@ -17,6 +18,7 @@ public class RestaurantTableRepositoryImpl implements RestaurantTableRepository 
     }
 
     @Override
+    @Transactional
     public void save(RestaurantTable theRestaurantTable) {
         entityManager.persist(theRestaurantTable);
     }
@@ -27,6 +29,7 @@ public class RestaurantTableRepositoryImpl implements RestaurantTableRepository 
     }
 
     @Override
+    @Transactional
     public void delete(int theId) {
 
         RestaurantTable tempRestaurantTable = entityManager.find(RestaurantTable.class, theId);

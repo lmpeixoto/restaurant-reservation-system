@@ -39,6 +39,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
+    @Transactional
     public void deleteCustomerById(int theId) {
 
         Customer tempCustomer = entityManager.find(Customer.class, theId);
