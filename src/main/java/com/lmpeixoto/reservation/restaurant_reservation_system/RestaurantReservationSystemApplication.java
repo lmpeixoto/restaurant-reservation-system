@@ -1,5 +1,6 @@
 package com.lmpeixoto.reservation.restaurant_reservation_system;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RestaurantReservationSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestaurantReservationSystemApplication.class, args);
+        Dotenv dotenv = Dotenv.configure().load();
+        dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
+        SpringApplication.run(RestaurantReservationSystemApplication.class, args);
         System.out.println("Hello World!");
 	}
 
