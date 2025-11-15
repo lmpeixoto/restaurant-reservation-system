@@ -11,7 +11,6 @@ public class RestaurantReservationSystemApplication {
         Dotenv dotenv = Dotenv.configure().load();
         dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
         SpringApplication.run(RestaurantReservationSystemApplication.class, args);
-        System.out.println("Hello World!");
 	}
 
 }
