@@ -1,8 +1,8 @@
-package com.lmpeixoto.reservation.restaurant_reservation_system.dao.interfaces;
+package com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces;
 
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Dish;
 
-public interface DishDAO {
+public interface DishRepository {
 
     void save(Dish theDish);
 

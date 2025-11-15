@@ -1,6 +1,6 @@
-package com.lmpeixoto.reservation.restaurant_reservation_system.dao;
+package com.lmpeixoto.reservation.restaurant_reservation_system.repositories;
 
-import com.lmpeixoto.reservation.restaurant_reservation_system.dao.interfaces.CustomerDAO;
+import com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces.CustomerRepository;
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Customer;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class CustomerDAOImpl implements CustomerDAO {
+public class CustomerRepositoryImpl implements CustomerRepository {
 
     private EntityManager entityManager;
 
     @Autowired
-    public CustomerDAOImpl(EntityManager entityManager) {
+    public CustomerRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

@@ -1,6 +1,6 @@
-package com.lmpeixoto.reservation.restaurant_reservation_system.dao;
+package com.lmpeixoto.reservation.restaurant_reservation_system.repositories;
 
-import com.lmpeixoto.reservation.restaurant_reservation_system.dao.interfaces.DishDAO;
+import com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces.DishRepository;
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Dish;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class DishDAOImpl implements DishDAO {
+public class DishRepositoryImpl implements DishRepository {
 
     private EntityManager entityManager;
 
     @Autowired
-    public DishDAOImpl(EntityManager entityManager) {
+    public DishRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

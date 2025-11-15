@@ -1,8 +1,8 @@
-package com.lmpeixoto.reservation.restaurant_reservation_system.dao.interfaces;
+package com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces;
 
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.RestaurantTable;
 
-public interface RestaurantTableDAO {
+public interface RestaurantTableRepository {
 
     void save(RestaurantTable theRestaurantTable);
 

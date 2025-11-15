@@ -1,8 +1,8 @@
-package com.lmpeixoto.reservation.restaurant_reservation_system.dao.interfaces;
+package com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces;
 
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Customer;
 
-public interface CustomerDAO {
+public interface CustomerRepository {
 
     void save(Customer theCustomer);
 
