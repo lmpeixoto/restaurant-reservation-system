@@ -21,7 +21,9 @@ public class Dish {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "ingredients")
+    @ElementCollection
+    @CollectionTable(name="dish_ingredients", joinColumns = @JoinColumn(name="dish_id"))
+    @Column(name = "ingredient")
     private List<String> ingredients;
 
     @Column(name = "available", nullable = false)

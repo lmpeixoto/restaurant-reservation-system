@@ -41,16 +41,6 @@ public class Reservation {
 
     }
 
-    public Reservation(int numberOfPeople, LocalDateTime dateTime, RestaurantTable restaurantTable, Customer customer, ReservationStatus reservationStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.numberOfPeople = numberOfPeople;
-        this.dateTime = dateTime;
-        this.restaurantTable = restaurantTable;
-        this.customer = customer;
-        this.reservationStatus = reservationStatus;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
     public long getId() {
         return id;
     }
@@ -75,11 +65,11 @@ public class Reservation {
         this.dateTime = dateTime;
     }
 
-    public RestaurantTable getTable() {
+    public RestaurantTable getRestaurantTable() {
         return restaurantTable;
     }
 
-    public void setTable(RestaurantTable restaurantTable) {
+    public void setRestaurantTable(RestaurantTable restaurantTable) {
         this.restaurantTable = restaurantTable;
     }
 
@@ -114,4 +104,15 @@ public class Reservation {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public Reservation(int numberOfPeople, LocalDateTime dateTime, RestaurantTable restaurantTable, Customer customer, ReservationStatus reservationStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.numberOfPeople = numberOfPeople;
+        this.dateTime = dateTime;
+        this.restaurantTable = restaurantTable;
+        this.customer = customer;
+        this.reservationStatus = reservationStatus;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
 }
