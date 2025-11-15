@@ -4,8 +4,10 @@ import com.lmpeixoto.reservation.restaurant_reservation_system.dao.interfaces.Re
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Reservation;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public class ReservationImpl implements ReservationDAO {
 
     private EntityManager entityManager;
