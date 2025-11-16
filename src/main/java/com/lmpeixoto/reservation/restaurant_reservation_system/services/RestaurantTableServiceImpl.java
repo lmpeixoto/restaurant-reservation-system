@@ -21,8 +21,9 @@ public class RestaurantTableServiceImpl implements RestaurantTableService {
     }
 
     @Override
-    public void saveRestaurantTable(RestaurantTable theRestaurantTable) {
+    public RestaurantTable saveRestaurantTable(RestaurantTable theRestaurantTable) {
         restaurantTableRepository.save(theRestaurantTable);
+        return theRestaurantTable;
     }
 
     @Override

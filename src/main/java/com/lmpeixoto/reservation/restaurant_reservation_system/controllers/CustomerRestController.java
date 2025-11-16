@@ -16,12 +16,9 @@ public class CustomerRestController {
 
     private CustomerService customerService;
 
-    private ObjectMapper objectMapper;
-
     @Autowired
-    public CustomerRestController(CustomerService theCustomerService, ObjectMapper theObjectMapper) {
+    public CustomerRestController(CustomerService theCustomerService) {
         customerService = theCustomerService;
-        objectMapper = theObjectMapper;
     }
 
     @GetMapping("/customers")

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RestaurantTableService {
 
-    void saveRestaurantTable(RestaurantTable theRestaurantTable);
+    RestaurantTable saveRestaurantTable(RestaurantTable theRestaurantTable);
 
     List<RestaurantTable> findAll();
 

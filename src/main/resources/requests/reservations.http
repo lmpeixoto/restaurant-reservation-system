@@ -1,0 +1,45 @@
+### get all reservations
+GET http://localhost:8080/api/reservations
+
+### get reservation by Id
+GET http://localhost:8080/api/reservations/1
+
+### create reservation
+POST http://localhost:8080/api/reservations
+Content-Type: application/json
+
+{
+  "numberOfPeople": 4,
+  "dateTime": "2025-11-16T10:19:59.969",
+  "restaurantTable": "2",
+  "customer": "Luís Peixoto",
+  "reservationStatus": "+351912344555",
+  "createdAt": "2025-11-16T10:19:59.969"
+
+}
+
+### update reservation
+PUT http://localhost:8080/api/reservations
+Content-Type: application/json
+
+{
+  "id": "3",
+  "firstName": "Ana",
+  "lastName": "Nascimento",
+  "email": "avanessa65@gmail.com",
+  "phoneNumber": "+351912344555",
+  "passwordHash": "asdflkmfkerflkn",
+  "createdAt": "2025-11-16T10:19:59.969",
+  "reservations": []
+}
+
+### patch reservation
+PATCH http://localhost:8080/api/reservations/1
+Content-Type: application/json
+
+{
+  "email": "testemail@gmail.com"
+}
+
+### delete reservation
+DELETE http://localhost:8080/api/reservations/2

@@ -16,12 +16,9 @@ public class DishRestController {
 
     private DishService dishService;
 
-    private ObjectMapper objectMapper;
-
     @Autowired
-    public DishRestController(DishService theDishService, ObjectMapper theObjectMapper) {
+    public DishRestController(DishService theDishService) {
         dishService = theDishService;
-        objectMapper = theObjectMapper;
     }
 
     @GetMapping("/dishes")
