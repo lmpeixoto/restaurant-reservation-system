@@ -2,7 +2,6 @@ package com.lmpeixoto.reservation.restaurant_reservation_system.services;
 
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Customer;
 import com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces.CustomerRepository;
-import com.lmpeixoto.reservation.restaurant_reservation_system.repositories.interfaces.RestaurantTableRepository;
 import com.lmpeixoto.reservation.restaurant_reservation_system.services.interfaces.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +21,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void saveCustomer(Customer theCustomer) {
+    public Customer saveCustomer(Customer theCustomer) {
         customerRepository.save(theCustomer);
 
+        return theCustomer;
     }
 
     @Override
