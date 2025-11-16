@@ -45,7 +45,7 @@ PATCH http://localhost:8080/api/dishes/1
 Content-Type: application/json
 
 {
-  "available": true
+  "available": false
 }
 
 ### delete dish

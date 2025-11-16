@@ -70,20 +70,11 @@ public class CustomerRestController {
             throw new RuntimeException("Customer id is not allowed in request body - " + customerId);
         }
 
-        Customer patchedCustomer = apply(patchPayload, tempCustomer);
+        Customer patchedCustomer = ControllerUtils.applyPatch(patchPayload, tempCustomer, Customer.class);
 
         Customer dbCustomer = customerService.saveCustomer(patchedCustomer);
 
         return dbCustomer;
-    }
-
-    private Customer apply(Map<String, Object> patchPayload, Customer tempCustomer) {
-        ObjectNode customerNode = objectMapper.convertValue(tempCustomer, ObjectNode.class);
-        ObjectNode patchNode = objectMapper.convertValue(patchPayload, ObjectNode.class);
-
-        customerNode.setAll(patchNode);
-
-        return objectMapper.convertValue(customerNode, Customer.class);
     }
 
     @DeleteMapping("/customers/{customerId}")

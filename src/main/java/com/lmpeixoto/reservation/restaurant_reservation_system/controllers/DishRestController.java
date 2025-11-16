@@ -68,20 +68,11 @@ public class DishRestController {
             throw new RuntimeException("Dish id is not allowed in request body - " + dishId);
         }
 
-        Dish patchedDish = apply(patchPayload, tempDish);
+        Dish patchedDish = ControllerUtils.applyPatch(patchPayload, tempDish, Dish.class);
 
         Dish dbDish = dishService.saveDish(patchedDish);
 
         return dbDish;
-    }
-
-    private Dish apply(Map<String, Object> patchPayload, Dish tempDish) {
-        ObjectNode dishNode = objectMapper.convertValue(tempDish, ObjectNode.class);
-        ObjectNode patchNode = objectMapper.convertValue(patchPayload, ObjectNode.class);
-
-        dishNode.setAll(patchNode);
-
-        return objectMapper.convertValue(dishNode, Dish.class);
     }
 
     @DeleteMapping("/dishes/{dishId}")
