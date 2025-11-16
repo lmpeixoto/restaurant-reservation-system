@@ -13,8 +13,12 @@ import java.util.stream.StreamSupport;
 @Service
 public class ReservationServiceImpl implements ReservationService {
 
+    private final ReservationRepository reservationRepository;
+
     @Autowired
-    ReservationRepository reservationRepository;
+    public ReservationServiceImpl(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
 
     @Override
     public void saveReservation(Reservation theReservation) {

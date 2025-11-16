@@ -27,7 +27,7 @@ public class Customer {
     private String email;
 
     @Column(name = "phone_number", nullable = false, unique = true)
-    private int phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "password_hash")
     private String passwordHash;
@@ -45,7 +45,7 @@ public class Customer {
 
     }
 
-    public Customer(String firstName, String lastName, String email, int phoneNumber, String passwordHash, LocalDateTime createdAt, LocalDateTime updatedAt, List<Reservation> reservations) {
+    public Customer(String firstName, String lastName, String email, String phoneNumber, String passwordHash, LocalDateTime createdAt, LocalDateTime updatedAt, List<Reservation> reservations) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -88,11 +88,11 @@ public class Customer {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -135,7 +135,7 @@ public class Customer {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", passwordHash='" + passwordHash + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

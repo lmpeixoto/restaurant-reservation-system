@@ -13,8 +13,12 @@ import java.util.stream.StreamSupport;
 @Service
 public class DishServiceImpl implements DishService {
 
+    private final DishRepository dishRepository;
+
     @Autowired
-    private DishRepository dishRepository;
+    public DishServiceImpl(DishRepository dishRepository) {
+        this.dishRepository = dishRepository;
+    }
 
     @Override
     public void saveDish(Dish theDish) {

@@ -13,8 +13,12 @@ import java.util.stream.StreamSupport;
 @Service
 public class RestaurantTableServiceImpl implements RestaurantTableService {
 
+    private final RestaurantTableRepository restaurantTableRepository;
+
     @Autowired
-    public RestaurantTableRepository restaurantTableRepository;
+    public RestaurantTableServiceImpl(RestaurantTableRepository restaurantTableRepository) {
+        this.restaurantTableRepository = restaurantTableRepository;
+    }
 
     @Override
     public void saveRestaurantTable(RestaurantTable theRestaurantTable) {
