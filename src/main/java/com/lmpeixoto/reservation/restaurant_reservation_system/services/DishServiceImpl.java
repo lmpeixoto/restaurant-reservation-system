@@ -21,8 +21,9 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public void saveDish(Dish theDish) {
+    public Dish saveDish(Dish theDish) {
         dishRepository.save(theDish);
+        return theDish;
     }
 
     @Override

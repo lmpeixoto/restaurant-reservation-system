@@ -87,7 +87,7 @@ public class CustomerRestController {
     }
 
     @DeleteMapping("/customers/{customerId}")
-    public String deleteEmployee(@PathVariable long customerId) {
+    public String deleteCustomer(@PathVariable long customerId) {
 
         Customer tempCustomer = customerService.findCustomerById(customerId);
 
@@ -101,4 +101,3 @@ public class CustomerRestController {
     }
 
 }
-

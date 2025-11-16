@@ -1,0 +1,52 @@
+### get all dishes
+GET http://localhost:8080/api/dishes
+
+### get dish by Id
+GET http://localhost:8080/api/dishes/1
+
+### create dish
+POST http://localhost:8080/api/dishes
+Content-Type: application/json
+
+{
+  "name": "stroganoff",
+  "description": "Made with chicken meat",
+  "ingredients": [
+    "chicken",
+    "tomatoe",
+    "cream",
+    "salt",
+    "garlic"
+  ],
+  "available":true
+}
+
+### update dish
+PUT http://localhost:8080/api/dishes
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "stroganoff",
+  "description": "Made with chicken meat",
+  "ingredients": [
+    "chicken",
+    "tomatoe",
+    "cream",
+    "salt",
+    "garlic",
+    "onion"
+  ],
+  "available":false
+}
+
+### patch dish
+PATCH http://localhost:8080/api/dishes/1
+Content-Type: application/json
+
+{
+  "available": true
+}
+
+### delete dish
+DELETE http://localhost:8080/api/dishes/2

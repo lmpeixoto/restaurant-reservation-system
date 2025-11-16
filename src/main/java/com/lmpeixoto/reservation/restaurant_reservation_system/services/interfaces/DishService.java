@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DishService {
 
-    void saveDish(Dish theDish);
+    Dish saveDish(Dish theDish);
 
     List<Dish> findAll();
 
