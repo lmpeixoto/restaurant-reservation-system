@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@Controller
-@RequestMapping("api")
+@RestController
+@RequestMapping("/api")
 public class RestaurantTableRestController {
 
     private RestaurantTableService restaurantTableService;

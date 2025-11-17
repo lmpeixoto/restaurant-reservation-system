@@ -34,7 +34,7 @@ public class Reservation {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime updatedAt;
 
     public Reservation() {

@@ -11,11 +11,8 @@ Content-Type: application/json
 {
   "numberOfPeople": 4,
   "dateTime": "2025-11-16T10:19:59.969",
-  "restaurantTable": "2",
-  "customer": "Luís Peixoto",
-  "reservationStatus": "+351912344555",
-  "createdAt": "2025-11-16T10:19:59.969"
-
+  "customerId": 1,
+  "restaurantTableId": 1
 }
 
 ### update reservation

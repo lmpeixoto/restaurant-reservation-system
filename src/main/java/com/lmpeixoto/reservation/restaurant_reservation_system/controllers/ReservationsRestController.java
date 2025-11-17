@@ -1,10 +1,16 @@
 package com.lmpeixoto.reservation.restaurant_reservation_system.controllers;
 
+import com.lmpeixoto.reservation.restaurant_reservation_system.dto.ReservationCreateDTO;
+import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Customer;
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Reservation;
+import com.lmpeixoto.reservation.restaurant_reservation_system.entities.RestaurantTable;
+import com.lmpeixoto.reservation.restaurant_reservation_system.services.interfaces.CustomerService;
 import com.lmpeixoto.reservation.restaurant_reservation_system.services.interfaces.ReservationService;
+import com.lmpeixoto.reservation.restaurant_reservation_system.services.interfaces.RestaurantTableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -12,11 +18,15 @@ import java.util.Map;
 @RequestMapping("/api")
 public class ReservationsRestController {
 
+    private final CustomerService customerService;
+    private final RestaurantTableService restaurantTableService;
     private ReservationService reservationService;
 
     @Autowired
-    public ReservationsRestController(ReservationService theReservationService) {
+    public ReservationsRestController(ReservationService theReservationService, CustomerService customerService, RestaurantTableService restaurantTableService) {
         reservationService = theReservationService;
+        this.customerService = customerService;
+        this.restaurantTableService = restaurantTableService;
     }
 
     @GetMapping("/reservations")
@@ -36,9 +46,21 @@ public class ReservationsRestController {
     }
 
     @PostMapping("/reservations")
-    public Reservation addReservation(@RequestBody Reservation theReservation) {
+    public Reservation addReservation(@RequestBody ReservationCreateDTO dto) {
 
-        Reservation dbReservation = reservationService.saveReservation(theReservation);
+        Customer customer = customerService.findCustomerById(dto.customerId);
+
+        RestaurantTable restaurantTable = restaurantTableService.findRestaurantTableById(dto.restaurantTableId);
+
+        Reservation dbReservation = new Reservation();
+
+        dbReservation.setNumberOfPeople(dto.numberOfPeople);
+        dbReservation.setDateTime(LocalDateTime.parse(dto.dateTime));
+        dbReservation.setCustomer(customer);
+        dbReservation.setRestaurantTable(restaurantTable);
+        dbReservation.setCreatedAt(LocalDateTime.now());
+
+        reservationService.saveReservation(dbReservation);
 
         return dbReservation;
     }

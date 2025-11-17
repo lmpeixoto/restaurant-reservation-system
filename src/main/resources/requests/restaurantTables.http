@@ -1,0 +1,35 @@
+### get all tables
+GET http://localhost:8080/api/tables
+
+### get table by Id
+GET http://localhost:8080/api/tables/1
+
+### create table
+POST http://localhost:8080/api/tables
+Content-Type: application/json
+
+{
+  "number": 1,
+  "capacity": 6
+}
+
+### update table
+PUT http://localhost:8080/api/tables
+Content-Type: application/json
+
+{
+  "id": 3,
+  "number": 3,
+  "capacity": 2
+}
+
+### patch table
+PATCH http://localhost:8080/api/tables/3
+Content-Type: application/json
+
+{
+  "capacity": 8
+}
+
+### delete table
+DELETE http://localhost:8080/api/tables/2

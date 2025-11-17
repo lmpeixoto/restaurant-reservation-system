@@ -2,7 +2,7 @@
 GET http://localhost:8080/api/customers
 
 ### get customer by Id
-GET http://localhost:8080/api/customers/1
+GET http://localhost:8080/api/customers/3
 
 ### create customer
 POST http://localhost:8080/api/customers
