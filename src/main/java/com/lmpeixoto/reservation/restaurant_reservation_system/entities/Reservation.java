@@ -22,10 +22,12 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "table_id", nullable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties("reservations")
     private RestaurantTable restaurantTable;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties("reservations")
     private Customer customer;
 
     @Enumerated(EnumType.STRING)

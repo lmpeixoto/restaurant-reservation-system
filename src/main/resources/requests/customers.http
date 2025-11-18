@@ -9,10 +9,10 @@ POST http://localhost:8080/api/customers
 Content-Type: application/json
 
 {
-  "firstName": "Vanessa",
-  "lastName": "Nascimento",
-  "email": "avanessa65@gmail.com",
-  "phoneNumber": "+351912344555",
+  "firstName": "Luis",
+  "lastName": "Peixoto",
+  "email": "lmpeixoto@gmail.com",
+  "phoneNumber": "+351912344445",
   "passwordHash": "asdflkmfkerflkn",
   "createdAt": "2025-11-16T10:19:59.969",
   "reservations": []
@@ -42,4 +42,4 @@ Content-Type: application/json
 }
 
 ### delete customer
-DELETE http://localhost:8080/api/customers/2
+DELETE http://localhost:8080/api/customers/1

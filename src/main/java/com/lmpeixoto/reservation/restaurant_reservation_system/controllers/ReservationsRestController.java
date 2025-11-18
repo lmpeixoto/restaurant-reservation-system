@@ -4,6 +4,8 @@ import com.lmpeixoto.reservation.restaurant_reservation_system.dto.ReservationCr
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Customer;
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.Reservation;
 import com.lmpeixoto.reservation.restaurant_reservation_system.entities.RestaurantTable;
+import com.lmpeixoto.reservation.restaurant_reservation_system.entities.enums.ReservationStatus;
+import com.lmpeixoto.reservation.restaurant_reservation_system.entities.enums.TableStatus;
 import com.lmpeixoto.reservation.restaurant_reservation_system.services.interfaces.CustomerService;
 import com.lmpeixoto.reservation.restaurant_reservation_system.services.interfaces.ReservationService;
 import com.lmpeixoto.reservation.restaurant_reservation_system.services.interfaces.RestaurantTableService;
@@ -50,7 +52,20 @@ public class ReservationsRestController {
 
         Customer customer = customerService.findCustomerById(dto.customerId);
 
+        if (customer == null) {
+            throw new RuntimeException("Inexistent customer with id - " + dto.customerId);
+        }
+
         RestaurantTable restaurantTable = restaurantTableService.findRestaurantTableById(dto.restaurantTableId);
+
+        if (restaurantTable == null) {
+            throw new RuntimeException("Inexistent table with id - " + dto.restaurantTableId);
+        }
+
+        if (restaurantTable.getTableStatus() == TableStatus.AVAILABLE) {
+            restaurantTable.setTableStatus(TableStatus.OCCUPIED);
+            restaurantTableService.saveRestaurantTable(restaurantTable);
+        }
 
         Reservation dbReservation = new Reservation();
 
@@ -59,8 +74,13 @@ public class ReservationsRestController {
         dbReservation.setCustomer(customer);
         dbReservation.setRestaurantTable(restaurantTable);
         dbReservation.setCreatedAt(LocalDateTime.now());
+        dbReservation.setReservationStatus(ReservationStatus.ACTIVE);
+
+        customer.addReservation(dbReservation);
 
         reservationService.saveReservation(dbReservation);
+
+        System.out.println("Reservation successfully saved - " + dbReservation.getId());
 
         return dbReservation;
     }

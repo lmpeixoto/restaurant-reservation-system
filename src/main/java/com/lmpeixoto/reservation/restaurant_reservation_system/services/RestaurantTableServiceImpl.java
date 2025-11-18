@@ -28,8 +28,7 @@ public class RestaurantTableServiceImpl implements RestaurantTableService {
 
     @Override
     public List<RestaurantTable> findAll() {
-        return StreamSupport.stream(restaurantTableRepository.findAll().spliterator(), false)
-                .toList();
+        return restaurantTableRepository.findAll();
     }
 
     @Override

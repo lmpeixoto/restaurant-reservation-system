@@ -11,8 +11,8 @@ Content-Type: application/json
 {
   "numberOfPeople": 4,
   "dateTime": "2025-11-16T10:19:59.969",
-  "customerId": 1,
-  "restaurantTableId": 1
+  "customerId": 3,
+  "restaurantTableId": 7
 }
 
 ### update reservation
@@ -39,4 +39,4 @@ Content-Type: application/json
 }
 
 ### delete reservation
-DELETE http://localhost:8080/api/reservations/2
+DELETE http://localhost:8080/api/reservations/6

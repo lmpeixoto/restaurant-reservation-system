@@ -24,12 +24,13 @@ public class RestaurantTable {
     private TableStatus tableStatus;
 
     public RestaurantTable() {
-
+        this.tableStatus = TableStatus.AVAILABLE;
     }
 
     public RestaurantTable(int number, int capacity) {
         this.number = number;
         this.capacity = capacity;
+        this.tableStatus = TableStatus.AVAILABLE;
     }
 
     public long getId() {
@@ -54,6 +55,14 @@ public class RestaurantTable {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public TableStatus getTableStatus() {
+        return tableStatus;
+    }
+
+    public void setTableStatus(TableStatus tableStatus) {
+        this.tableStatus = tableStatus;
     }
 
     @Override

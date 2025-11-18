@@ -39,10 +39,11 @@ public class Customer {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @com.fasterxml.jackson.annotation.JsonManagedReference
     private List<Reservation> reservations;
 
     public Customer() {
-
+        this.reservations = new ArrayList<>();
     }
 
     public Customer(String firstName, String lastName, String email, String phoneNumber, String passwordHash, LocalDateTime createdAt, LocalDateTime updatedAt, List<Reservation> reservations) {
@@ -54,6 +55,11 @@ public class Customer {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.reservations = reservations;
+    }
+
+    public void addReservation(Reservation reservation) {
+        this.reservations.add(reservation);
+        reservation.setCustomer(this);
     }
 
     public long getId() {

@@ -28,8 +28,7 @@ public class DishServiceImpl implements DishService {
 
     @Override
     public List<Dish> findAll() {
-        return StreamSupport.stream(dishRepository.findAll().spliterator(), false)
-                .toList();
+        return dishRepository.findAll();
     }
 
     @Override

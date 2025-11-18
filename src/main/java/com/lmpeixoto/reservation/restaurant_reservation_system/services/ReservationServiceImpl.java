@@ -28,8 +28,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public List<Reservation> findAll() {
-        return StreamSupport.stream(reservationRepository.findAll().spliterator(), false)
-                .toList();
+        return reservationRepository.findAll();
     }
 
     @Override
